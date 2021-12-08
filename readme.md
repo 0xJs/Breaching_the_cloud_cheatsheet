@@ -33,6 +33,7 @@ https://github.com/[git account]/[repo name]/commit/[commit ID]
 ### Password spray
 
 ## Stealing azure tokens
+- https://github.com/rvrsh3ll/TokenTactics
 ### Method 1
 #### Save the AzureRmContext.json
 ```
