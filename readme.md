@@ -7,3 +7,4 @@
   - Azure https://www.microsoft.com/en-us/msrc/pentest-rules-of-engagement
   - AWS: https://aws.amazon.com/security/penetration-testing/
   - GCP  https://support.google.com/cloud/answer/6262505?hl=en
+- Enumerate host https://github.com/dafthack/HostRecon
