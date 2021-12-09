@@ -68,8 +68,6 @@ $apps.Id
 ```
 - Now we can choose what level of access we want and change the pass for that service principal
 
-```
-
 ## Break glass accounts
 - Another PrivEsc target is Azure “Break Glass” administrative accounts
 - Microsoft recommends not setting up MFA for them
