@@ -1,8 +1,24 @@
 # Authenticated enumeration
-### Enumerating AWS Access
-- https://github.com/carnal0wnage/weirdAAL
+## Authentication
+
+#### Set AWS programmatic keys for authentication 
+- use ```--profile=<name>`` for a new profile
+```bash
+aws configure
 ```
-python3 weirdAAL.py -m recon_all -t test
+
+#### Open S3 bucket enumeration
+
+List the contents of an S3 bucket
+
+```bash
+aws s3 ls s3://<bucketname>/ 
+```
+
+Download contents of bucket
+
+```bash
+aws s3 sync s3://bucketname s3-files-dir
 ```
 
 ## Manual enumeration
