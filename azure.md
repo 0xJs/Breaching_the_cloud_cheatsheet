@@ -11,11 +11,7 @@ connect-msolservice
 ```
 
 #### Get basic information
-- Interesting information:
-  - UsersPermissionToReadOtherUsersEnabled
-  - DirSyncServiceAccount
-  - PasswordSynchronizationEnabled
-  - Address/phone/emails
+- Interesting information: UsersPermissionToReadOtherUsersEnabled, DirSyncServiceAccount, PasswordSynchronizationEnabled, Address/phone/emails
 ```
 Get-MSolCompanyInformation
 ```
