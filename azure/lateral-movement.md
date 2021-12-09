@@ -38,12 +38,12 @@ Import-AzContext -Path 'C:\Temp\Live Tokens\StolenToken.json’
 - Through cspkg zip files for creds/certs.
 - Search Visual Studio Public Directory ```<cloud project directory>\bin\debug\publish```
 
-#### Publish settings in files
+### Publish settings in files
 - Look for file ```.publishsettings```
 - Can contain a Base64 encoded Management Certificate or cleartext credentials
 - Save "ManagementCertificate" section into a new .pfx file
 - Search the user's Downloads directory and VS projects.
 
-#### Storage explorers
+### Storage explorers
 - Windows Credential Manager stores these credentials.
 - Azure Storage Explorer for example has a built-in “Developer Tools” function that you can use to set breakpoints while loading the credentials allowing you to view them while unencrypted.
