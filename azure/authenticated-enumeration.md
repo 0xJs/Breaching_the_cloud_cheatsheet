@@ -1,4 +1,5 @@
 # Authenticated enumeration
+## Manual enumeration
 #### Connect to Azure
 ```
 Connect-AzAccount
@@ -66,4 +67,68 @@ Get-AzContext | fl *
 ```
 Get-Module -Name Az.Accounts | Select-Object -ExpandProperty ExportedCommands
 Get-Module -Name MSOnline | Select-Object -ExpandProperty ExportedCommands
+```
+
+## Powerzure enumeration
+- https://github.com/hausec/PowerZure
+- https://powerzure.readthedocs.io/en/latest/
+
+#### Whoami
+```
+Show-AzureCurrentUser
+```
+
+### List all users
+```
+Get-AzureUser -All
+```
+
+#### List all groups
+```
+Get-AzureGroup -All
+```
+
+#### List all users of a group
+```
+Get-AzureGroup –Group ‘Global Admins’
+```
+
+#### List resources
+```
+Get-AzureTargets
+```
+
+#### List out owners of applications
+```
+Get-AzureAppOwners
+```
+
+#### Lists members of a role
+```
+Get-AzureADRole -Role <ROLE NAME>
+```
+
+#### Lists key vaults
+```
+Show-AzureKeyVaultContent
+```
+
+#### List storage accounts
+```
+Show-AzureStorageContent
+```
+
+#### Lists runbook contents
+```
+Get-AzureRunbookContent
+```
+
+#### Create link to download a VM disk
+```
+Get-AzureVMDisk 
+```
+
+####
+```
+
 ```
