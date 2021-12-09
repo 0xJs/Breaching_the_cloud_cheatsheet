@@ -1,5 +1,5 @@
 # Lateral movement
-## Stealing Azure tokens
+## Stealing Access tokens
 - https://github.com/rvrsh3ll/TokenTactics
 ### User access tokens method 1
 #### Save the AzureRmContext.json
@@ -47,3 +47,26 @@ Import-AzContext -Path 'C:\Temp\Live Tokens\StolenToken.json’
 ### Storage explorers
 - Windows Credential Manager stores these credentials.
 - Azure Storage Explorer for example has a built-in “Developer Tools” function that you can use to set breakpoints while loading the credentials allowing you to view them while unencrypted.
+
+### Web config and App config files
+-  ```Web.config``` and ```app.config``` files might contain creds or access tokens.
+- Look for management cert and extract to ```.pfx``` like publishsettings files
+```
+sudo find / -name web.config 2>/dev/null
+Get-ChildItem -Path C:\ -Filter app.config -Recurse -ErrorAction SilentlyContinue -Force
+```
+
+### Internal repositories
+- Find internal repos (scan for port 80, 443 or Query AD and look for subdomains or hostnames as git, code, repo, gitlab, bitbucket etc)
+- Tools for finding secrets
+  - Gitleaks https://github.com/zricethezav/gitleaks
+  - Gitrob https://github.com/michenriksen/gitrob
+  - Truffle hog https://github.com/dxa4481/truffleHog
+  
+### Command history
+- Look through command history
+- ```~/.bash_history`` or ```%USERPROFILE%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt```
+```
+sudo find / -name .bash_history 2>/dev/null
+Get-ChildItem -Path C:\ -Filter *ConsoleHost_history.txt* -Recurse -ErrorAction SilentlyContinue -Force
+```
