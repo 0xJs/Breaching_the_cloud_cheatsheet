@@ -8,23 +8,6 @@ sudo find /home -name "credentials.db
 "
 ```
 
-#### Azure: Visual Studio Code
-- Azure Cloud Service Packages (.cspkg)
-- Deployment files created by Visual Studio.
-- Possible other Azure services integration (SQL, storage, etc.)
-- Look through cspkg zip files for creds/certs.
-- Search Visual Studio Public Directory ```<cloud project directory>\bin\debug\publish```
-
-#### Azure: Publish settings in files
-- Look for file ```.publishsettings```
-- Can contain a Base64 encoded Management Certificate or cleartext credentials
-- Save "ManagementCertificate" section into a new .pfx file
-- Search the user's Downloads directory and VS projects.
-
-#### Azure: Storage explorers
-- Windows Credential Manager stores these credentials.
-- Azure Storage Explorer for example has a built-in “Developer Tools” function that you can use to set breakpoints while loading the credentials allowing you to view them while unencrypted.
-
 #### Web config and App config files
 -  ```Web.config``` and ```app.config``` files might contain creds or access tokens.
 - Look for management cert and extract to ```.pfx``` like publishsettings files
@@ -35,3 +18,7 @@ sudo find /home -name "credentials.db
   - Gitleaks https://github.com/zricethezav/gitleaks
   - Gitrob https://github.com/michenriksen/gitrob
   - Truffle hog https://github.com/dxa4481/truffleHog
+  
+#### Command history
+- Look through command history
+- ```~/.bash_history`` or ```%USERPROFILE%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt```
