@@ -97,5 +97,5 @@ Invoke-EnumerateAzureBlobs –Base <base name>
 #### Public AWS blobs
 - https://github.com/RhinoSecurityLabs/pacu
 
-### Public Google Storage Buckets
+#### Public Google Storage Buckets
 - https://github.com/initstring/cloud_enum
