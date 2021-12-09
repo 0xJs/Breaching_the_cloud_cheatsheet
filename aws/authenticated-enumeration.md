@@ -2,8 +2,8 @@
 ## Authentication
 
 #### Set AWS programmatic keys for authentication 
-- use ```--profile=<name>`` for a new profile
-```bash
+- use ```--profile=<name>``` for a new profile
+```
 aws configure
 ```
 
@@ -11,13 +11,13 @@ aws configure
 
 List the contents of an S3 bucket
 
-```bash
+```
 aws s3 ls s3://<bucketname>/ 
 ```
 
 Download contents of bucket
 
-```bash
+```
 aws s3 sync s3://bucketname s3-files-dir
 ```
 
