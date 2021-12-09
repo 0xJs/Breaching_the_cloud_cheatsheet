@@ -9,6 +9,43 @@ Connect-AzAccount
 connect-msolservice
 ```
 
+#### Get current user's role assignment
+```
+Get-AzRoleAssignment
+```
+
+#### Get all users
+```
+Get-MSolUser -all
+```
+
+#### Get all groups
+```
+Get-MSolGroup -all
+```
+
+#### Get members of group
+```
+Get-MSolGroupMember -GroupObjectID <GUID>
+```
+
+#### Get azure resources
+```
+Get-AzResource
+Get-AzResourceGroup
+```
+
+#### Get automation accounts
+```
+Get-AzAutomationAccount
+Get-AzAutomationRunbook -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName>
+```
+
+#### Export a runbook
+```
+Export-AzAutomationRunbook -AutomationAccountName <account name> -ResourceGroupName <resource group name> -Name <runbook name> -OutputFolder .\Desktop\
+```
+
 #### Get basic information
 - Interesting information: UsersPermissionToReadOtherUsersEnabled, DirSyncServiceAccount, PasswordSynchronizationEnabled, Address/phone/emails
 ```
@@ -23,16 +60,6 @@ Get-AzSubscription
 #### List the current context
 ```
 Get-AzContext | fl *
-```
-
-#### Enumerate the roles of the current user
-```
-Get-AzRoleAssignment
-```
-
-#### List users of the subscription
-```
-Get-MSolUser -All
 ```
 
 #### Get all commands for AZ and MSOnline
