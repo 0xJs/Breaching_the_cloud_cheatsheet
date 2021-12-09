@@ -48,7 +48,6 @@ gobuster dns -d <target domain> -w <wordlist>
 cat iplist.txt | python ip2provider.py
 ```
 
-#### Check portals
 #### O365 usage
 - Add domain to following url, if exists there is a tenant: 
 ```
@@ -62,3 +61,41 @@ https://login.microsoftonline.com/<TARGET DOMAIN>/v2.0/.well-known/openid-config
 #### AWS usage
 - Check if any resources are being loaded from S3 buckets
 - Using burp, navigate the webapp and check for any calls to ```https://[bucketname].s3.amazonaws.com ``` or  ```• https://s3-[region].amazonaws.com/[Org Name]```
+
+#### Box.om usage
+- Look for any login portals
+- https://companyname.account.box.com
+
+## Recon employees
+- Build a user list with linkedin
+- Determine username scheme via public file metadata (PDF, DOCX, XLSX, etc)
+  - Powermeta https://github.com/dafthack/PowerMeta
+  - FOCA https://github.com/ElevenPaths/FOCA
+
+## User enumeration
+- Azure can be performed at https://login.microsoft.com/common/oauth2/token
+- This endpoint tells you if a user exists or not
+- Detect invalid users while password spraying with MSOL spray
+
+## Password spraying
+#### Azure password spray
+- https://github.com/dafthack/MSOLSpray
+```
+Import-Module .\MSOLSpray.ps1
+Invoke-MSOLSpray -UserList validemails.txt -Password <PASSWORD> -Verbose
+```
+
+## Find data in public storage
+- https://github.com/initstring/cloud_enum can scan all three cloud services for multiple services.
+
+#### Public azure blobs
+- https://github.com/NetSPI/MicroBurst
+```
+Invoke-EnumerateAzureBlobs –Base <base name>
+```
+
+#### Public AWS blobs
+- https://github.com/RhinoSecurityLabs/pacu
+
+### Public Google Storage Buckets
+- https://github.com/initstring/cloud_enum
