@@ -1,5 +1,16 @@
 # Amazon Web Services pentesting cheatsheet
-## S3 bucket pillaging
+## Enumeration
+
+## Lateral Movement
+
+## Exploitation
+
+## Privilege escalation
+
+## Persistence
+
+
+### S3 bucket pillaging
 #### Brute force bucket names
 - https://github.com/initstring/cloud_enum
 ```
