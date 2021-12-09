@@ -1,24 +1,11 @@
 # Authenticated enumeration
-## Authentication
+- AWS Command Line https://aws.amazon.com/cli/
 
+## Authentication
 #### Set AWS programmatic keys for authentication 
 - use ```--profile=<name>``` for a new profile
 ```
 aws configure
-```
-
-#### Open S3 bucket enumeration
-
-List the contents of an S3 bucket
-
-```
-aws s3 ls s3://<bucketname>/ 
-```
-
-Download contents of bucket
-
-```
-aws s3 sync s3://bucketname s3-files-dir
 ```
 
 ## Manual enumeration
@@ -42,7 +29,76 @@ aws iam list-users
 aws iam list-roles
 ```
 
+### S3 buckets
 #### List s3 buckets
 ```
 aws iam list-roles
+```
+
+#### List the contents of an S3 bucket
+```
+aws s3 ls s3://<bucketname>/ 
+```
+
+#### Download contents of bucket
+```
+aws s3 sync s3://bucketname s3-files-dir
+```
+
+#### List EC2 instances
+```
+aws ec2 describe-instances
+```
+
+#### List WebApps
+```
+aws deploy list-applications
+```
+
+#### List AWS RDS (SQL)
+```
+aws rds describe-db-instances --region <region name>
+```
+
+Knowing the VPC Security Group ID you can query the firewall rules to determine connectivity potential
+
+```
+aws ec2 describe-security-groups --group-ids <VPC Security Group ID> --region <region>
+```
+
+### Serverless
+#### List Lambda Functions
+```
+aws lambda list-functions --region <region>
+```
+
+#### Look at environment variables set for secrets and analyze code
+```
+aws lambda get-function --function-name <lambda function>
+```
+
+### Networking
+#### List EC2 subnets
+```
+aws ec2 describe-subnets
+```
+
+#### List ec2 network interfaces
+```
+aws ec2 describe-network-interfaces
+```
+
+#### List DirectConnect (VPN) connections
+```
+aws directconnect describe-connections
+```
+
+#### List access keys for a user
+```
+aws iam list-access-keys --user-name <username>
+```
+
+#### Backdoor account with second set of access keys
+```
+aws iam create-access-key --user-name <username>
 ```
