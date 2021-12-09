@@ -102,3 +102,11 @@ aws iam list-access-keys --user-name <username>
 ```
 aws iam create-access-key --user-name <username>
 ```
+
+## PACU
+#### Enumerate account information and permissions
+```
+run iam__enum_users_roles_policies_groups
+run iam__enum_permissions
+whoami
+```
