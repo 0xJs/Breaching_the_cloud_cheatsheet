@@ -164,3 +164,8 @@ Get-AzVM
 $vm = Get-AzVM -Name <name> 
 $vm.OSProfile
 ```
+
+#### List vm's which are a managed identity
+```
+(az vm list | ConvertFrom-Json) | ForEach-Object {$_.name;(az vm identity show --resource-group $_.resourceGroup --name $_.name | ConvertFrom-Json)}
+```
