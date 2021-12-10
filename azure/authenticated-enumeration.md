@@ -3,10 +3,10 @@
 * [Authentication](#Authentication)
 * [Manual Enumeration](#Manual-Enumeration)
   * [Runbooks](#Runbooks)
-  * [SQL server](#SQL server)
-  * [Virtual Machines](#Virtual Machines)
+  * [SQL server](#SQL-server)
+  * [Virtual Machines](#Virtual-Machines)
   * [Networking](#Networking)
-* [Powerzure enumeration](#Powerzure enumeration)
+* [Powerzure enumeration](#Powerzure-enumeration)
 * [MFASweep](#MFASweep)
 
 ## Authentication
