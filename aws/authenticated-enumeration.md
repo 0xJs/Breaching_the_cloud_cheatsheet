@@ -68,6 +68,16 @@ Knowing the VPC Security Group ID you can query the firewall rules to determine 
 aws ec2 describe-security-groups --group-ids <VPC Security Group ID> --region <region>
 ```
 
+#### List access keys for a user
+```
+aws iam list-access-keys --user-name <username>
+```
+
+#### Backdoor account with second set of access keys
+```
+aws iam create-access-key --user-name <username>
+```
+
 ### Serverless
 #### List Lambda Functions
 ```
@@ -93,16 +103,6 @@ aws ec2 describe-network-interfaces
 #### List DirectConnect (VPN) connections
 ```
 aws directconnect describe-connections
-```
-
-#### List access keys for a user
-```
-aws iam list-access-keys --user-name <username>
-```
-
-#### Backdoor account with second set of access keys
-```
-aws iam create-access-key --user-name <username>
 ```
 
 ## PACU
