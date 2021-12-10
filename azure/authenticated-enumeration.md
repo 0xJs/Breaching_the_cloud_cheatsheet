@@ -1,7 +1,7 @@
 # Authenticated enumeration
 ## Manual enumeration
 ### Authentication
-
+#### Authenticate AZ
 ```
 Import-Module Az
 Connect-AzAccount
@@ -24,9 +24,14 @@ Import-AzContext -Profile 'C:\Temp\Live Tokens\StolenToken.json'
 Save-AzContext -Path C:\Temp\AzureAccessToken.json
 ```
 
-#### Connect to MSOL
+#### Authenticate MSOL
 ```
-connect-msolservice
+Connect-MsolService
+
+## Or this way sometimes gets around MFA restrictions
+
+$credential = Get-Credential
+Connect-MsolService -Credential $credential
 ```
 
 ### Basic enumeration
