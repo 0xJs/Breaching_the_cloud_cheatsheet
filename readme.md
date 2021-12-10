@@ -1,4 +1,10 @@
 # Breaching the cloud cheatsheet
+* [General](#General)
+* [Recon \ OSINT](recon.md)
+* [Initial access attacks](initial-access-attacks.md)
+* [Azure](Azure\readme.md)
+* [Amazon Web Services](AWS\readme.md)
+* [Google Cloud Platform](GCB\readme.md)
 
 - Google Cloud Platform != Google Workspace
 - Azure != Microsoft 365
