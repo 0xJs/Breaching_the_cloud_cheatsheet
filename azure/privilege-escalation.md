@@ -1,13 +1,22 @@
 # Privilege Escalation
-- First step is determining what we can read
-  - Key Vaults
-  - VMs
-  - Deployment scripts
-  - AD user attribute data
-  - Runbooks
+## Index
+* [Getting credetials](#Getting-credentials)
+* [Virtual Machines](#Virtual-machines)
+  * [VM is managed identity](#VM-is-managed-identity) 
+  * [Read password hashes from virtual machine](#Read-password-hashes-from-virtual-machine)
+  * [Execute commands](#Execute-commands)
+  * [Reset password from VM](#Reset-password-from-VM)
+* [Ad user attributes](#Ad-user-attributes)
+* [Service Principal Hijacking](#Service-Principal-Hijacking)
+* [Break glass accounts](#Break-glass-accounts)
+* [Azure key vaults](#Azure-key-vaults)
+* [Azure Container Registry dump](#Azure-Container-Registry-dump)
+
+## Getting credentials
+[Check getting credentials](post-exploitation.md#Getting-credentials)
 
 ## Virtual machines
-### VM might be managed identity
+### VM is managed identity
 - https://www.netspi.com/blog/technical/cloud-penetration-testing/azure-privilege-escalation-using-managed-identities/
 - If you have access to a VM it might actually have more privileges than your user in Azure
 - VM can auth to Azure with a Managed Identity by requesting Oauth token from Azure Metadata Service URL at http://169.254.169.254/metadata/identity/oauth2/token
