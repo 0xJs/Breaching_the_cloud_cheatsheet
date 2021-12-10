@@ -2,8 +2,6 @@
 ## Index
 * [General](#General)
 * [Scaning tools](#Scanning-tools)
-
-* Links to other pages 
 * [Recon \ OSINT](recon.md)
 * [Initial access attacks](initial-access-attacks.md)
 * [Azure](azure/readme.md)
