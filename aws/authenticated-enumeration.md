@@ -1,3 +1,4 @@
+# Authenticated enumeration
 # Index
 * [Authentication](#Authentication)
 * [Manual Enumeration](#Manual-enumeration)
@@ -9,10 +10,8 @@
   * [PACU](#PACU)
   * [WeirdAAL](#WeirdAAL)
 
-# Authenticated enumeration
-- AWS Command Line https://aws.amazon.com/cli/
-
 ## Authentication
+- AWS Command Line https://aws.amazon.com/cli/
 - use ```--profile=<NAME>``` to use a specific profile for executing the commands
  
 #### Set AWS programmatic keys for authentication 
