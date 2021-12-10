@@ -13,3 +13,5 @@
 - Scoutsuite https://github.com/nccgroup/ScoutSuite
 - Stormspotter https://github.com/Azure/Stormspotter
 - Azurehound https://github.com/BloodHoundAD/AzureHound
+- MFASweep https://github.com/dafthack/MFA
+  - Use MFASweep to find inconsistensies through MFA requirements 
