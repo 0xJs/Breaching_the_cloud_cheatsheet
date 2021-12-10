@@ -11,3 +11,20 @@ run iam__privesc_scan
 - Check the following dirs for scripts/creds:
   - ``` C:\ProgramData\Amazon`` 
   - ```C:\Program Files\Amazon\WorkSpacesConfig\```
+
+### Lamda
+### Read lamda functions
+- Copy access keys found in the environment variables
+```
+sudo aws lambda list-functions --profile <PROFILE> --region <REGION>
+```
+
+#### Create a new profile for the access keys
+```
+sudo aws configure --profile <PROFILE>
+```
+
+#### Use the creds, for example list ec2 instances:
+```
+sudo aws ec2 describe-instances --profile <PROFILE> --region <REGION>
+```
