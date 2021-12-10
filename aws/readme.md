@@ -3,7 +3,7 @@
 * [General](#General)
 * [Authenticated enumeration](authenticated-enumeration.md )
 * [Privilege Escalation](privilege-escalation.md)
-* [lateral Movement](lateral-movement.md)
+* [Lateral Movement](lateral-movement.md)
 * [Persistence](persistence.md)
 * [Post Exploitation](post-exploitation.md)
 
