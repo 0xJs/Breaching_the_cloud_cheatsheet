@@ -1,4 +1,20 @@
 # Initial access attacks
+## Public storage
+## Find data in public storage
+- https://github.com/initstring/cloud_enum can scan all three cloud services for multiple services.
+
+#### Public azure blobs
+- https://github.com/NetSPI/MicroBurst
+```
+Invoke-EnumerateAzureBlobs –Base <base name>
+```
+
+#### Public AWS blobs
+- https://github.com/RhinoSecurityLabs/pacu
+
+#### Public Google Storage Buckets
+- https://github.com/initstring/cloud_enum
+
 ## Key disclosure in public repositories
 - Scavange repos for keys
 - Find keys in realtime: https://github.com/eth0izzle/shhgit
