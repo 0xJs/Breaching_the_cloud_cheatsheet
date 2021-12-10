@@ -3,9 +3,9 @@
 * [General](#General)
 * [Recon \ OSINT](recon.md)
 * [Initial access attacks](initial-access-attacks.md)
-* [Azure](Azure/readme.md)
-* [Amazon Web Services](AWS/readme.md)
-* [Google Cloud Platform](GCB/readme.md)
+* [Azure](azure/readme.md)
+* [Amazon Web Services](aws/readme.md)
+* [Google Cloud Platform](gcb/readme.md)
 
 ## General
 - Google Cloud Platform != Google Workspace
