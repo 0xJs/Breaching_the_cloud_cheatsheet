@@ -1,5 +1,5 @@
 # Authenticated enumeration
-# Index
+## Index
 * [Authentication](#Authentication)
 * [Manual Enumeration](#Manual-enumeration)
   * [S3 buckets](#S3-buckets)
