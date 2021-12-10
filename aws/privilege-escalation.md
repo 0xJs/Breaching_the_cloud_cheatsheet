@@ -1,9 +1,13 @@
 # Privilege Escalation
 ## Index
+* [Getting credentials](#Getting-credentials)
 * [PACU Scan for privesc](#PACU)
 * [Execute commands on vm's](#Execute-commands-on-VM's)
 * [Gain AWS console access](#Gain-AWS-console-access)
 * [Lamda](#Lamda)
+
+## Getting credentials
+[Check getting credentials](post-exploitation.md#Getting-credentials)
 
 ## PACU 
 #### Check for privilege escalation
