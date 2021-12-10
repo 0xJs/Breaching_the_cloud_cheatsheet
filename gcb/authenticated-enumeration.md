@@ -53,3 +53,12 @@ gsutil ls -r gs://<bucket name>
 ```
 gcloud app instances list
 ```
+
+#### List out SQL
+```
+gcloud sql instances list
+gcloud sql databases list --instance <instance name>
+gcloud spanner instances list
+gcloud spanner databases list --instance <instance name>
+gcloud bigtable instances list
+```
