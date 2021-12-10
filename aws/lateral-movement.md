@@ -1,5 +1,8 @@
 # Lateral movement
-## Gain GUI Acess
+# Index
+* [Gain GUI Acess](#Gain-GUI-Access)
+
+## Gain GUI Access
 #### Copy and save the following
 - as ```admin-policy.json```
 ```
