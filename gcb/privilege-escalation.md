@@ -12,7 +12,7 @@
 
 ## Index
 * [Execute commands on VM's](#Execute-commands-on-VM's)
-* [Getting credentials](#Getting credentials)
+* [Getting credentials](#Getting-credentials)
 
 ## Execute commands on VM's
 - Can connect with gcloud ssh command, command can be retrieved from the portal in VM instances, remote access --> View gcloud command, looks like:
