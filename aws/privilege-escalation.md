@@ -1,10 +1,18 @@
 # Privilege Escalation
-## PACU Check for privilege escalation
+# Index
+* [PACU Scan for privesc](#PACU)
+* [Execute commands on vm's](#Execute-commands-on-VM's)
+* [Gain AWS console access](#Gain-AWS-console-access)
+* [Check for credentials](#Check-for-credentials)
+* [Lamda](#Lamda)
+
+## PACU 
+#### Check for privilege escalation
 ```bash
 run iam__privesc_scan
 ```
 
-## Execute commands on vm's
+## Execute commands on VM's
 - Requires EC2COnfig or System Manager agent on instances
 - Or SSH keys
 - Can use GUI to connect
@@ -17,7 +25,7 @@ run iam__privesc_scan
   - ``` C:\ProgramData\Amazon`` 
   - ```C:\Program Files\Amazon\WorkSpacesConfig\```
 
-## Lamda
+## Lamdda
 ### Read lamda functions
 - Copy access keys found in the environment variables
 ```
