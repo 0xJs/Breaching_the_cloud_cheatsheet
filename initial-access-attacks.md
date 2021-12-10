@@ -52,6 +52,7 @@ Invoke-MSOLSpray -UserList validemails.txt -Password <PASSWORD> -Verbose
   - Out of date web technologies with known vulns
   - SQL or command injection vulns
   - Server-side-request forgery (SSRF)
+  - Arbitrary file upload
 - Good place to start post shell:
   - Creds in metadata service
   - Certificates
