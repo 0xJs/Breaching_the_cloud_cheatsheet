@@ -66,12 +66,3 @@ gcloud compute instances add-metadata <instance name> --metadata-from-file ssh-k
 ```
 
 - Now when the daemon runs it will add a new user with root privileges. Use your newly generated SSH key to SSH in.
-
-## GCP Web console
-- Sometimes GUI access might be desirable
-- Only available to user accounts, not service accounts
-
-#### Try to add a new editor to a project
-```
-gcloud projects add-iam-policy-binding <project name> --member user:<email address> --role roles/editor
-```
