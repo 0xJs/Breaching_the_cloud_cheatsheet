@@ -3,6 +3,8 @@
 * [General](#General)
 * [Getting credentials](#Getting-credentials)
 * [Execute commands on VM's](#Execute-commands-on-VM's)
+* [Bucket access](#Bucket-access)
+* [Metadata server](#Metadata-server)
 
 ## General
 - Google Cloud Platform has 2 user types
@@ -60,4 +62,5 @@ ssh-keygen -t rsa -C "<USER>" -f ./<FILENAME>.key -P ""
 gcloud compute instances add-metadata <instance name> --metadata-from-file ssh-keys=metadata.txt
 ```
 
+#### SSH into the machine
 - Now when the daemon runs it will add a new user with root privileges. Use your newly generated SSH key to SSH in.
