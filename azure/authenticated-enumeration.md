@@ -2,7 +2,12 @@
 ## Index
 * [Authentication](#Authentication)
 * [Manual Enumeration](#Manual-Enumeration)
-* 
+  * [Runbooks](#Runbooks)
+  * [SQL server](#SQL server)
+  * [Virtual Machines](#Virtual Machines)
+  * [Networking](#Networking)
+* [Powerzure enumeration](#Powerzure enumeration)
+* [MFASweep](#MFASweep)
 
 ## Authentication
 #### Authenticate AZ
@@ -117,7 +122,7 @@ Get-AzAdApplication
 Get-AzWebApp
 ```
 
-### SQl server
+### SQL server
 #### List SQL servers
 ```
 Get-AzSQLServer
