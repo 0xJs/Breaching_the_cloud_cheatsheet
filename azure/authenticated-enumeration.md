@@ -112,10 +112,24 @@ $vm.OSProfile
 ```
 
 ### Networking
+#### List virtual networks
+```
+Get-AzVirtualNetwork
+```
+
+#### List public IP addresses assigned to virtual NICs
+```
+Get-AzPublicIpAddress
+```
+
+#### Get Azure ExpressRoute (VPN) Info
 ```
 Get-AzExpressRouteCircuit
+```
+
+#### Get Azure VPN Info
+```
 Get-AzVpnConnection
-Get-AzVirtualNetwork
 ```
 
 ## Powerzure enumeration
