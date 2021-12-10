@@ -24,7 +24,7 @@
 - The default service account can access EVERY storage bucket in a project
 
 ## Getting credentials
-#### Gcloud credentials
+### Gcloud credentials
 - Gcloud stores creds in ~/.config/gcloud/credentials.db
 ```
 sudo find /home -name "credentials.db
