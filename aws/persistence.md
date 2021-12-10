@@ -1,5 +1,5 @@
 # Persistence
-# Index
+## Index
 * [Backdoor account](#Authentication)
 * [Outside entity Trust relationships](#Trust-relationships)
 
