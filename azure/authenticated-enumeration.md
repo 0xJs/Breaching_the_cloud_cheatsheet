@@ -1,6 +1,10 @@
 # Authenticated enumeration
-## Manual enumeration
-### Authentication
+## Index
+* [Authentication](#Authentication)
+* [Manual Enumeration](#Manual-Enumeration)
+* 
+
+## Authentication
 #### Authenticate AZ
 ```
 Import-Module Az
@@ -34,7 +38,7 @@ $credential = Get-Credential
 Connect-MsolService -Credential $credential
 ```
 
-### Basic enumeration
+## Manual enumeration
 #### Get current user's role assignment
 ```
 Get-AzRoleAssignment
