@@ -25,7 +25,7 @@ run iam__privesc_scan
   - ``` C:\ProgramData\Amazon`` 
   - ```C:\Program Files\Amazon\WorkSpacesConfig\```
 
-## Lamdda
+## Lamda
 ### Read lamda functions
 - Copy access keys found in the environment variables
 ```
