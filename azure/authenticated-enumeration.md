@@ -128,7 +128,13 @@ Get-AzureRunbookContent
 Get-AzureVMDisk 
 ```
 
-####
+#### List VM's user has access too
+```
+Get-AzVM
 ```
 
+#### List local admin username
+```
+$vm = Get-AzVM -Name <name> 
+$vm.OSProfile
 ```
