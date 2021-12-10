@@ -69,6 +69,11 @@ Get-Module -Name Az.Accounts | Select-Object -ExpandProperty ExportedCommands
 Get-Module -Name MSOnline | Select-Object -ExpandProperty ExportedCommands
 ```
 
+#### List webapps
+```
+Get-AzWebApp
+```
+
 ## Powerzure enumeration
 - https://github.com/hausec/PowerZure
 - https://powerzure.readthedocs.io/en/latest/
