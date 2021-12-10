@@ -1,3 +1,14 @@
+# Index
+* [Authentication](#Authentication)
+* [Manual Enumeration](#Manual-enumeration)
+  * [S3 buckets](#S3-buckets)
+  * [Webapps & SQL](#Webapps-&-SQL)
+  * [Serverless](#Serverless)
+  * [Networking](#Networking)
+* [Tools](#Tools)
+* [PACU](#PACU)
+* [WeirdAAL](#WeirdAAL)
+
 # Authenticated enumeration
 - AWS Command Line https://aws.amazon.com/cli/
 
@@ -31,6 +42,11 @@ aws iam list-users
 aws iam list-roles
 ```
 
+#### List access keys for a user
+```
+aws iam list-access-keys --user-name <username>
+```
+
 ### S3 buckets
 #### List s3 buckets
 ```
@@ -52,6 +68,7 @@ aws s3 sync s3://bucketname s3-files-dir
 aws ec2 describe-instances
 ```
 
+### Webapps & SQL
 #### List WebApps
 ```
 aws deploy list-applications
@@ -66,16 +83,6 @@ Knowing the VPC Security Group ID you can query the firewall rules to determine 
 
 ```
 aws ec2 describe-security-groups --group-ids <VPC Security Group ID> --region <region>
-```
-
-#### List access keys for a user
-```
-aws iam list-access-keys --user-name <username>
-```
-
-#### Backdoor account with second set of access keys
-```
-aws iam create-access-key --user-name <username>
 ```
 
 ### Serverless
@@ -105,7 +112,8 @@ aws ec2 describe-network-interfaces
 aws directconnect describe-connections
 ```
 
-## PACU
+## Tools
+### PACU
 #### Enumerate account information and permissions
 ```
 run iam__enum_users_roles_policies_groups
@@ -113,7 +121,7 @@ run iam__enum_permissions
 whoami
 ```
 
-## WeirdAAL
+### WeirdAAL
 #### Setup authentication with keys
 ```
 cp env.sample .env
