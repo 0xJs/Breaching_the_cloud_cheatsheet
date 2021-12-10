@@ -10,26 +10,18 @@
 - Got shell on a compute instance?
 - The default service account can access EVERY storage bucket in a project
 
-## Execute commands on vm's
+## Index
+* [Execute commands on VM's](#Execute-commands-on-VM's)
+* [Getting credentials](#Getting credentials)
+
+## Execute commands on VM's
 - Can connect with gcloud ssh command, command can be retrieved from the portal in VM instances, remote access --> View gcloud command, looks like:
 ```
 gcloud beta compute ssh --zone "us-east1-b" "test-instance-1" --project "test-gcloud-project"
 ```
 
 ## Getting credentials
-#### Look for Gcloud credentials
-- Gcloud stores creds in ~/.config/gcloud/credentials.db
-```
-sudo find /home -name "credentials.db
-```
-
-### Auth as compromised user
-- Copy gcloud dir to your own home directory to auth as the compromised user
-```bash
-sudo cp -r /home/username/.config/gcloud ~/.config
-sudo chown -R currentuser:currentuser ~/.config/gcloud
-gcloud auth list
-```
+(Check getting credentials)[../post-exploitation.md]
 
 ## Bucket access
 #### Check if user has default service account access
