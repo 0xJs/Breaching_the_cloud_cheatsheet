@@ -12,6 +12,9 @@
 - VM can auth to Azure with a Managed Identity by requesting Oauth token from Azure Metadata Service URL at http://169.254.169.254/metadata/identity/oauth2/token
 - RDP to VM, request token, and connect to Azure using AZ cli or Az PowerShell
 
+### Read password hashes from virtual machine
+- Download the disk https://docs.microsoft.com/en-us/azure/virtual-machines/windows/download-vhd#generate-download-url
+
 ## Ad user attributes
 - User attributes and sensitive information
 
