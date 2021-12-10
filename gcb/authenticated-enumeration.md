@@ -25,6 +25,7 @@ gcloud auth activate-service-account --key-file creds.json
 -  ```gcloud``` CLI tool for managing auth, config, and interacting with GCP services
 -  ``` gsutil``` CLI tool for accessing GCP storage buckets
 
+### Basic enumeration
 #### List accounts available to gcloud
 ```
 gcloud auth list
