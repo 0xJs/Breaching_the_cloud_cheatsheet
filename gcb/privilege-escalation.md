@@ -10,6 +10,12 @@
 - Got shell on a compute instance?
 - The default service account can access EVERY storage bucket in a project
 
+## Execute commands on vm's
+- Can connect with gcloud ssh command, command can be retrieved from the portal in VM instances, remote access --> View gcloud command, looks like:
+```
+gcloud beta compute ssh --zone "us-east1-b" "test-instance-1" --project "test-gcloud-project"
+```
+
 ## Bucket access
 #### Check if user has default service account access
 - Look for the standard default service account name that look like: 
