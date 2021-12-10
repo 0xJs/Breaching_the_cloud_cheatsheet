@@ -21,7 +21,7 @@ gcloud beta compute ssh --zone "us-east1-b" "test-instance-1" --project "test-gc
 ```
 
 ## Getting credentials
-* (Check getting credentials)[../post-exploitation.md]
+[Check getting credentials](../post-exploitation.md)
 
 ## Bucket access
 #### Check if user has default service account access
