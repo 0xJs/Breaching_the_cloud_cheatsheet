@@ -11,7 +11,7 @@ aws configure
 ```
 
 ## Manual enumeration
-### Get basis account info
+#### Get basis account info
 ```
 aws sts get-caller-identity
 ```
@@ -111,4 +111,38 @@ aws iam create-access-key --user-name <username>
 run iam__enum_users_roles_policies_groups
 run iam__enum_permissions
 whoami
+```
+
+## WeirdAAL
+#### Setup authentication with keys
+```
+cp env.sample .env
+nano .env
+
+#Add the following contents:
+[default]
+aws_access_key_id = <Access-key>
+aws_secret_access_key = <Secret-access-key>
+aws_session_token = <Session-Token>
+````
+
+#### Run recon_all module
+```
+python3 weirdAAL.py -m recon_all -t ssrf
+```
+
+#### List permissions
+```
+python3 weirdAAL.py -m list_services_by_key -t ssrf
+```
+
+#### List S3 buckets
+```
+python3 weirdAAL.py -m s3_get_bucket_policy -a <s3 bucket> -t ssrf
+```
+
+#### Download file from s3 bucket
+```
+python3 weirdAAL.py -m s3_download_file -a ‘<s3 bucket','admin-user.txt' -t ssrf
+cat loot/<s3 bucket name>/admin-user.txt
 ```
