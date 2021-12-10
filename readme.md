@@ -1,4 +1,5 @@
 # Breaching the cloud cheatsheet
+## Sumarry
 * [General](#General)
 * [Recon \ OSINT](recon.md)
 * [Initial access attacks](initial-access-attacks.md)
@@ -6,6 +7,7 @@
 * [Amazon Web Services](AWS\readme.md)
 * [Google Cloud Platform](GCB\readme.md)
 
+## General
 - Google Cloud Platform != Google Workspace
 - Azure != Microsoft 365
 - Google Workspace and Mirosoft 365 are productivity suites
