@@ -3,3 +3,6 @@
 ```bash
 run iam__privesc_scan
 ```
+
+## Gain AWS console access
+- https://github.com/NetSPI/aws_consoler
