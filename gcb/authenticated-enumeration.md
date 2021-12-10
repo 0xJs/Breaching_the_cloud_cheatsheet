@@ -62,3 +62,24 @@ gcloud spanner instances list
 gcloud spanner databases list --instance <instance name>
 gcloud bigtable instances list
 ```
+
+### Networking
+#### List networks
+```
+gcloud compute networks list
+```
+
+#### List subnets
+```
+gcloud compute networks subnets list
+```
+
+#### List VPN tunnels
+```
+gcloud compute vpn-tunnels list
+```
+
+#### List Interconnects (VPN)
+```
+gcloud compute interconnects list
+```
