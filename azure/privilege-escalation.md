@@ -159,3 +159,10 @@ az keyvault set-policy --name <KEYVAULT NAME> --upn <CONTRIBUTER USERNAME> --sec
 ```
 Get-AzureKeyVaultContent
 ```
+
+## Azure Container Registry dump
+- https://github.com/NetSPI/MicroBurst 
+```
+Get-AzPasswords
+Get-AzACR
+```
