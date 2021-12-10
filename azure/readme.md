@@ -1,4 +1,11 @@
 # Azure pentesting cheatsheet
+## Sumarry
+* [Authenticated enumeration](authenticated-enumeration.md )
+* [Privilege Escalation](privilege-escalation.md)
+* [Persistence](persistence.md)
+* [Post Exploitation](post-exploitation.md)
+
+
 ## Tools
 - Powerzure https://github.com/hausec/PowerZure
 - Microburst https://github.com/NetSPI/MicroBurst
