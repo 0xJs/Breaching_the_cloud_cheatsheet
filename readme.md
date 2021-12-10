@@ -8,3 +8,30 @@
   - AWS: https://aws.amazon.com/security/penetration-testing/
   - GCP  https://support.google.com/cloud/answer/6262505?hl=en
 - Enumerate host https://github.com/dafthack/HostRecon
+
+## Scanning tools
+### Vulnerability scanning
+- Scoutsuite
+  - https://github.com/nccgroup/ScoutSuite
+  - Scans AWS, Azure, GCP, Alibaba cloud, Oracle cloud
+- Scoutsploit
+  - https://github.com/cloudsploit/scans
+  - Scans AWS, Azure, GCP, Oracle
+
+### Enumeration
+- WeirdAAL
+  - https://github.com/carnal0wnage/weirdAAL
+  - AWS
+
+### Privesc scanning
+- GCP IAM privilege esalation
+  - https://github.com/RhinoSecurityLabs/GCP-IAM-Privilege-Escalation/tree/master/PrivEscScanner
+  - GCP
+- PACU
+  - https://github.com/RhinoSecurityLabs/pacu
+  - AWS 
+- Stormspotter
+  - https://github.com/Azure/Stormspotter
+  - Azure
+- Skyark
+  - https://github.com/cyberark/SkyArk
