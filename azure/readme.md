@@ -6,7 +6,8 @@
 * [Persistence](persistence.md)
 * [Post Exploitation](post-exploitation.md)
 
-## Tools
+## General
+### Tools
 - Powerzure https://github.com/hausec/PowerZure
 - Microburst https://github.com/NetSPI/MicroBurst
 - Scoutsuite https://github.com/nccgroup/ScoutSuite
