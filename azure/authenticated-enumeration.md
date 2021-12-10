@@ -74,6 +74,27 @@ Get-Module -Name MSOnline | Select-Object -ExpandProperty ExportedCommands
 Get-AzWebApp
 ```
 
+### SQl server
+#### List SQL servers
+```
+Get-AzSQLServer
+```
+
+#### List databases
+```
+Get-AzSqlDatabase -ServerName <Server Name> -ResourceGroupName <Resource Group Name>
+```
+
+#### Check allow list to database
+```
+Get-AzSqlServerFirewallRule –ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
+```
+  
+#### List out SQL server AD Admins
+```
+Get-AzSqlServerActiveDirectoryAdminstrator -ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
+```
+
 ## Powerzure enumeration
 - https://github.com/hausec/PowerZure
 - https://powerzure.readthedocs.io/en/latest/
