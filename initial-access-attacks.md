@@ -1,6 +1,6 @@
 # Initial access attacks
 ## Public storage
-## Find data in public storage
+#### Find data in public storage
 - https://github.com/initstring/cloud_enum can scan all three cloud services for multiple services.
 
 #### Public azure blobs
