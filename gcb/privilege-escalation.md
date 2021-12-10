@@ -1,7 +1,12 @@
 # Privilege Escalation
 ## Index
 * [General](#General)
-* [Getting credentials](#Getting-credentials)
+* [Getting Credentials](#Getting-credentials)
+  * [Gcloud credentials](#Gcloud-credentials)
+  * [Google tokens](#Google-tokens) 
+  * [Web config and App config files](#Web-config-and-App-config-files)
+  * [Internal repositories](#Internal-repositories)
+  * [Command history](#Command-history)
 * [Execute commands on VM's](#Execute-commands-on-VM's)
 * [Bucket access](#Bucket-access)
 * [Metadata server](#Metadata-server)
@@ -18,9 +23,52 @@
 - Got shell on a compute instance?
 - The default service account can access EVERY storage bucket in a project
 
-
 ## Getting credentials
-[Check getting credentials](post-exploitation.md#Getting-credentials)
+#### Gcloud credentials
+- Gcloud stores creds in ~/.config/gcloud/credentials.db
+```
+sudo find /home -name "credentials.db
+```
+
+### Auth as compromised user
+- Copy gcloud dir to your own home directory to auth as the compromised user
+```bash
+sudo cp -r /home/username/.config/gcloud ~/.config
+sudo chown -R currentuser:currentuser ~/.config/gcloud
+gcloud auth list
+```
+
+### Google tokens
+-  Google JSON Tokens and credentials.db
+-  JSON tokens typically used for service account access to GCP
+-  If a user authenticates with gcloud from an instance their creds get stored here ```~/.config/gcloud/credentials.db```
+```
+sudo find /home -name "credentials.db"
+```
+
+### Web config and App config files
+-  ```Web.config``` and ```app.config``` files might contain creds or access tokens.
+- Look for management cert and extract to ```.pfx``` like publishsettings files
+```
+sudo find / -name web.config 2>/dev/null
+Get-ChildItem -Path C:\ -Filter app.config -Recurse -ErrorAction SilentlyContinue -Force
+```
+
+### Internal repositories
+- Find internal repos (scan for port 80, 443 or Query AD and look for subdomains or hostnames as git, code, repo, gitlab, bitbucket etc)
+- Tools for finding secrets
+  - Gitleaks https://github.com/zricethezav/gitleaks
+  - Gitrob https://github.com/michenriksen/gitrob
+  - Truffle hog https://github.com/dxa4481/truffleHog
+  
+### Command history
+- Look through command history
+- ```~/.bash_history`` or ```%USERPROFILE%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt```
+```
+sudo find / -name .bash_history 2>/dev/null
+Get-ChildItem -Path C:\ -Filter *ConsoleHost_history.txt* -Recurse -ErrorAction SilentlyContinue -Force
+```
+
 
 ## Execute commands on VM's
 - Can connect with gcloud ssh command, command can be retrieved from the portal in VM instances, remote access --> View gcloud command, looks like:
