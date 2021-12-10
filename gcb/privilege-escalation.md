@@ -1,4 +1,10 @@
 # Privilege Escalation
+## Index
+* [General](#General)
+* [Getting credentials](#Getting-credentials)
+* [Execute commands on VM's](#Execute-commands-on-VM's)
+
+## General
 - Google Cloud Platform has 2 user types
   - User Accounts 
     - Traditional user access with password 
@@ -10,18 +16,15 @@
 - Got shell on a compute instance?
 - The default service account can access EVERY storage bucket in a project
 
-## Index
-* [Execute commands on VM's](#Execute-commands-on-VM's)
-* [Getting credentials](#Getting-credentials)
+
+## Getting credentials
+[Check getting credentials](post-exploitation.md#Getting-credentials)
 
 ## Execute commands on VM's
 - Can connect with gcloud ssh command, command can be retrieved from the portal in VM instances, remote access --> View gcloud command, looks like:
 ```
 gcloud beta compute ssh --zone "us-east1-b" "test-instance-1" --project "test-gcloud-project"
 ```
-
-## Getting credentials
-[Check getting credentials](post-exploitation.md#Getting-credentials)
 
 ## Bucket access
 #### Check if user has default service account access
