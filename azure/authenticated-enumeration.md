@@ -190,3 +190,12 @@ Get-AzureRunbookContent
 ```
 Get-AzureVMDisk 
 ```
+
+## MFASweep
+- Use MFASweep to find inconsistensies through MFA requirements
+- https://github.com/dafthack/MFASweep
+- Blogpost: https://www.blackhillsinfosec.com/exploiting-mfa-inconsistencies-on-microsoft-services/
+```
+Import-Module MFASweep.ps1
+Invoke-MFASweep -Username <EMAIL> -Password <PASSWORD>
+```
