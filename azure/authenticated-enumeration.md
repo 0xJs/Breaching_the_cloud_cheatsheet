@@ -95,6 +95,29 @@ Get-AzSqlServerFirewallRule –ServerName <ServerName> -ResourceGroupName <Resou
 Get-AzSqlServerActiveDirectoryAdminstrator -ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
 ```
 
+#### List VM's user has access too
+```
+Get-AzVM
+```
+
+#### List local admin username
+```
+$vm = Get-AzVM -Name <name> 
+$vm.OSProfile
+```
+
+#### List vm's which are a managed identity
+```
+(az vm list | ConvertFrom-Json) | ForEach-Object {$_.name;(az vm identity show --resource-group $_.resourceGroup --name $_.name | ConvertFrom-Json)}
+```
+
+### Networking
+```
+Get-AzExpressRouteCircuit
+Get-AzVpnConnection
+Get-AzVirtualNetwork
+```
+
 ## Powerzure enumeration
 - https://github.com/hausec/PowerZure
 - https://powerzure.readthedocs.io/en/latest/
@@ -152,20 +175,4 @@ Get-AzureRunbookContent
 #### Create link to download a VM disk
 ```
 Get-AzureVMDisk 
-```
-
-#### List VM's user has access too
-```
-Get-AzVM
-```
-
-#### List local admin username
-```
-$vm = Get-AzVM -Name <name> 
-$vm.OSProfile
-```
-
-#### List vm's which are a managed identity
-```
-(az vm list | ConvertFrom-Json) | ForEach-Object {$_.name;(az vm identity show --resource-group $_.resourceGroup --name $_.name | ConvertFrom-Json)}
 ```
