@@ -6,8 +6,8 @@
   * [Serverless](#Serverless)
   * [Networking](#Networking)
 * [Tools](#Tools)
-* [PACU](#PACU)
-* [WeirdAAL](#WeirdAAL)
+  * [PACU](#PACU)
+  * [WeirdAAL](#WeirdAAL)
 
 # Authenticated enumeration
 - AWS Command Line https://aws.amazon.com/cli/
