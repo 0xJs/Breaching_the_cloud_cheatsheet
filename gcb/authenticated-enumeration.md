@@ -1,10 +1,15 @@
 # Authenticated enumeration
--  Most GCP instances have Google Cloud SDK installed
--  ```gcloud``` CLI tool for managing auth, config, and interacting with GCP services
--  ``` gsutil``` CLI tool for accessing GCP storage buckets
+## Index
+* [Authentication](#Authentication)
+* [Manual Enumeration](#Manual-Enumeration)
+  * [Virtual machines](#Virtual-machines)
+  * [Storage Buckets](#Storage-Buckets)
+  * [Webapps and SQL](#Webapps-and-SQL)
+  * [Networking](#Networking)
+  * [Containers](#Containers)
+  * [Serverless](#Serverless)
 
-## Manual enumeration
-### Authentication
+## Authentication
 #### User identity login
 ```
 gcloud auth login
@@ -15,7 +20,11 @@ gcloud auth login
 gcloud auth activate-service-account --key-file creds.json
 ```
 
-### Basic enumeration
+## Manual Enumeration
+-  Most GCP instances have Google Cloud SDK installed
+-  ```gcloud``` CLI tool for managing auth, config, and interacting with GCP services
+-  ``` gsutil``` CLI tool for accessing GCP storage buckets
+
 #### List accounts available to gcloud
 ```
 gcloud auth list
@@ -98,7 +107,7 @@ gsutil ls
 gsutil ls -r gs://<bucket name>
 ```
 
-### Webapps & SQL
+### Webapps and SQL
 #### List webapps
 ```
 gcloud app instances list
@@ -167,7 +176,7 @@ gcloud container clusters get-credentials <cluster name> --region <region>
 kubectl cluster-info
 ```
 
-#### Serverless
+## Serverless
 #### GCP functions log analysis 
 - May get useful information from logs associated with GCP functions
 ```
@@ -182,19 +191,5 @@ gcloud functions logs read <function name> --limit <number of lines>
 gcloud run services list
 gcloud run services describe <service-name>
 gcloud run revisions describe --region=<region> <revision-name>
-```
-
-#### Search home directories
-- Gcloud stores creds in ~/.config/gcloud/credentials.db
-```
-sudo find /home -name "credentials.db
-```
-
-### Auth as compromised user
-- Copy gcloud dir to your own home directory to auth as the compromised user
-```bash
-sudo cp -r /home/username/.config/gcloud ~/.config
-sudo chown -R currentuser:currentuser ~/.config/gcloud
-gcloud auth list
 ```
 
