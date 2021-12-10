@@ -1,8 +1,27 @@
 # Authenticated enumeration
 ## Manual enumeration
-#### Connect to Azure
+### Authentication
+
 ```
+Import-Module Az
 Connect-AzAccount
+
+## Or this way sometimes gets around MFA restrictions
+
+$credential = Get-Credential
+Connect-AzAccount -Credential $credential
+```
+
+#### Import a context file
+
+```
+Import-AzContext -Profile 'C:\Temp\Live Tokens\StolenToken.json'
+```
+
+#### Export a context file
+
+```
+Save-AzContext -Path C:\Temp\AzureAccessToken.json
 ```
 
 #### Connect to MSOL
@@ -10,9 +29,32 @@ Connect-AzAccount
 connect-msolservice
 ```
 
+### Basic enumeration
 #### Get current user's role assignment
 ```
 Get-AzRoleAssignment
+```
+
+#### Get context details
+```
+$context = Get-AzContext
+$context.Name
+$context.Account
+```
+
+#### List the current context
+```
+Get-AzContext | fl *
+```
+
+#### Get the AZ subscriptions the user has access too
+```
+Get-AzSubscription
+```
+
+#### Choose a subscription
+```
+Select-AzSubscription -SubscriptionID "SubscriptionID"
 ```
 
 #### Get all users
@@ -36,7 +78,8 @@ Get-AzResource
 Get-AzResourceGroup
 ```
 
-#### Get automation accounts
+### Runbooks
+#### List Azure Runbooks
 ```
 Get-AzAutomationAccount
 Get-AzAutomationRunbook -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName>
@@ -53,16 +96,6 @@ Export-AzAutomationRunbook -AutomationAccountName <account name> -ResourceGroupN
 Get-MSolCompanyInformation
 ```
 
-#### Get the AZ subscriptions the user has access too
-```
-Get-AzSubscription
-```
-
-#### List the current context
-```
-Get-AzContext | fl *
-```
-
 #### Get all commands for AZ and MSOnline
 ```
 Get-Module -Name Az.Accounts | Select-Object -ExpandProperty ExportedCommands
@@ -71,6 +104,7 @@ Get-Module -Name MSOnline | Select-Object -ExpandProperty ExportedCommands
 
 #### List webapps
 ```
+Get-AzAdApplication
 Get-AzWebApp
 ```
 
@@ -85,7 +119,7 @@ Get-AzSQLServer
 Get-AzSqlDatabase -ServerName <Server Name> -ResourceGroupName <Resource Group Name>
 ```
 
-#### Check allow list to database
+#### List SQL Firewall rules
 ```
 Get-AzSqlServerFirewallRule –ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
 ```
@@ -95,12 +129,14 @@ Get-AzSqlServerFirewallRule –ServerName <ServerName> -ResourceGroupName <Resou
 Get-AzSqlServerActiveDirectoryAdminstrator -ServerName <ServerName> -ResourceGroupName <ResourceGroupName>
 ```
 
+### Virtual Machines
 #### List VM's user has access too
 ```
 Get-AzVM
 ```
 
-#### List local admin username
+#### Get OS Details
+- List local admin username
 ```
 $vm = Get-AzVM -Name <name> 
 $vm.OSProfile
