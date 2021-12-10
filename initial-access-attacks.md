@@ -15,6 +15,10 @@ Invoke-EnumerateAzureBlobs –Base <base name>
 #### Public Google Storage Buckets
 - https://github.com/initstring/cloud_enum
 
+## Public SQL database
+- https://github.com/initstring/cloud_enum can scan all three cloud services for multiple services.
+- Might be able to bruteforce port 1433
+
 ## Key disclosure in public repositories
 - Scavange repos for keys
 - Find keys in realtime: https://github.com/eth0izzle/shhgit
