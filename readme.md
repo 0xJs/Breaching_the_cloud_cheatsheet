@@ -1,6 +1,9 @@
 # Breaching the cloud cheatsheet
 ## Index
 * [General](#General)
+* [Scaning tools](#Scanning-tools)
+
+* Links to other pages 
 * [Recon \ OSINT](recon.md)
 * [Initial access attacks](initial-access-attacks.md)
 * [Azure](azure/readme.md)
@@ -18,6 +21,11 @@
 - Enumerate host https://github.com/dafthack/HostRecon
 
 ## Scanning tools
+### Enumeration
+- WeirdAAL
+  - https://github.com/carnal0wnage/weirdAAL
+  - AWS
+
 ### Vulnerability scanning
 - Scoutsuite
   - https://github.com/nccgroup/ScoutSuite
@@ -25,11 +33,6 @@
 - Scoutsploit
   - https://github.com/cloudsploit/scans
   - Scans AWS, Azure, GCP, Oracle
-
-### Enumeration
-- WeirdAAL
-  - https://github.com/carnal0wnage/weirdAAL
-  - AWS
 
 ### Privesc scanning
 - GCP IAM privilege esalation
