@@ -2,7 +2,7 @@
 * [Authentication](#Authentication)
 * [Manual Enumeration](#Manual-enumeration)
   * [S3 buckets](#S3-buckets)
-  * [Webapps & SQL](#Webapps-&-SQL)
+  * [Webapps & SQL](#Webapps-and-SQL)
   * [Serverless](#Serverless)
   * [Networking](#Networking)
 * [Tools](#Tools)
@@ -68,7 +68,7 @@ aws s3 sync s3://bucketname s3-files-dir
 aws ec2 describe-instances
 ```
 
-### Webapps & SQL
+### Webapps and SQL
 #### List WebApps
 ```
 aws deploy list-applications
