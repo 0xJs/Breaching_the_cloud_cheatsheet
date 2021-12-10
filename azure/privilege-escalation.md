@@ -140,12 +140,12 @@ $apps.Id
 az keyvault list --query '[].name' --output tsv
 ```
 
-#### Try to access keyvault
+#### Get URI of keyvault
 ```
 az keyvault secret list --vault-name <KEYVAULT> --query '[].id' --output tsv
 ```
 
-#### Read cleartext secret
+#### Read cleartext secrets
 ```
 az keyvault secret show --id <URI from last command> | ConvertFrom-Json
 ```
