@@ -1,6 +1,17 @@
 # Persistence
-## Backdoor account with second set of access keys
+# Index
+* [Backdoor account](#Authentication)
+* [Outside entity Trust relationships](#Trust relationships)
+
+
+## Backdoor account
 - Each account can have two access keys
+#### List access keys
+```
+aws iam list-access-keys --user-name <username>
+```
+
+#### Create second pair of access keys
 ```
 aws iam create-access-key --user-name <username>
 ```
