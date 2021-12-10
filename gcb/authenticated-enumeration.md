@@ -48,3 +48,8 @@ gsutil ls
 ```
 gsutil ls -r gs://<bucket name>
 ```
+
+#### List webapps
+```
+gcloud app instances list
+```
