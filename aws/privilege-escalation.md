@@ -4,6 +4,10 @@
 run iam__privesc_scan
 ```
 
+## Execute commands on vm's
+- Requires EC@COnfig or System Manager agent on instances
+- Or SSH keys
+
 ## Gain AWS console access
 - https://github.com/NetSPI/aws_consoler
 
@@ -12,7 +16,7 @@ run iam__privesc_scan
   - ``` C:\ProgramData\Amazon`` 
   - ```C:\Program Files\Amazon\WorkSpacesConfig\```
 
-### Lamda
+## Lamda
 ### Read lamda functions
 - Copy access keys found in the environment variables
 ```
