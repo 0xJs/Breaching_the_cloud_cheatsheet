@@ -1,5 +1,5 @@
 # Breaching the cloud cheatsheet
-## Sumarry
+## Index
 * [General](#General)
 * [Recon \ OSINT](recon.md)
 * [Initial access attacks](initial-access-attacks.md)
