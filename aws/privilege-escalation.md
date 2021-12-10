@@ -5,8 +5,9 @@ run iam__privesc_scan
 ```
 
 ## Execute commands on vm's
-- Requires EC@COnfig or System Manager agent on instances
+- Requires EC2COnfig or System Manager agent on instances
 - Or SSH keys
+- Can use GUI to connect
 
 ## Gain AWS console access
 - https://github.com/NetSPI/aws_consoler
