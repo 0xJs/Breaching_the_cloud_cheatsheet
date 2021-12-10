@@ -3,7 +3,6 @@
 * [PACU Scan for privesc](#PACU)
 * [Execute commands on vm's](#Execute-commands-on-VM's)
 * [Gain AWS console access](#Gain-AWS-console-access)
-* [Getting credentials](#Getting-credentials)
 * [Lamda](#Lamda)
 
 ## PACU 
@@ -19,11 +18,6 @@ run iam__privesc_scan
 
 ## Gain AWS console access
 - https://github.com/NetSPI/aws_consoler
-
-## Check for credentials
-- Check the following dirs for scripts/creds:
-  - ``` C:\ProgramData\Amazon`` 
-  - ```C:\Program Files\Amazon\WorkSpacesConfig\```
 
 ## Lamda
 ### Read lamda functions
