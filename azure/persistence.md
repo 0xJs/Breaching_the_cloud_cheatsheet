@@ -1,4 +1,11 @@
 # Persistence
+## Index
+* [Service principal backdoor](#Service-principal-backdoor)
+* [0365 App passwords](#0365-App-passwords)
+* [Guest user accounts](#Guest-user-accounts)
+* [Runbook backdoor with webhook](#GRunbook-backdoor-with-webhook)
+* [Service principal global admin](#Service-principal-global-admin)
+
 ## Service principal backdoor
 ```
 $spn = New-AzAdServicePrincipal -DisplayName "WebService" -Role Owner
