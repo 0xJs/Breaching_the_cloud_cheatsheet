@@ -2,6 +2,8 @@
 - AWS Command Line https://aws.amazon.com/cli/
 
 ## Authentication
+- use ```--profile=<NAME>``` to use a specific profile for executing the commands
+ 
 #### Set AWS programmatic keys for authentication 
 - use ```--profile=<name>``` for a new profile
 ```
