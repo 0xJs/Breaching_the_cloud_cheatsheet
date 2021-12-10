@@ -1,5 +1,5 @@
 # Lateral movement
-# Index
+## Index
 * [Gain GUI Acess](#Gain-GUI-Access)
 
 ## Gain GUI Access
